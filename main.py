@@ -7,8 +7,6 @@ import get_data
 import util
 from MobileYolo import MobileYolo
 from MobileYolo_skip import MobileYolo_skip
-from MobileYolo_plus import MobileYolo_plus
-from MobileYolo_dark import MobileYolo_dark
 from ResYolo import ResYolo
 
 def model_size():
@@ -61,10 +59,6 @@ if __name__ == '__main__':
     if flags.model == '2':
         model = MobileYolo_skip(images_plh,labels_plh,anchors,flags.cr,is_training_plh)
     if flags.model == '3':
-        model = MobileYolo_plus(images_plh,labels_plh,anchors,is_training_plh)
-    if flags.model == '4':
-        model = MobileYolo_dark(images_plh,labels_plh,anchors,is_training_plh)
-    if flags.model == '5':
         model = ResYolo(images_plh,labels_plh,anchors,is_training_plh)
 
     saver = tf.train.Saver(max_to_keep=10)
